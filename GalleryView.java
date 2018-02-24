@@ -39,52 +39,37 @@ public class GalleryView extends Activity {
         
         imageView = (ImageView)findViewById(R.id.ImageView01);
         ga.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				Toast.makeText(getBaseContext(), 
-						"You have selected picture " + (arg2+1) + " of Antartica", 
-						Toast.LENGTH_SHORT).show();
-				imageView.setImageResource(pics[arg2]);
-				
-			}
-        	
-        });
-        
-    }
-    
-    
-    public class ImageAdapter extends BaseAdapter {
-
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			Toast.makeText(getBaseContext(), 
+					"You have selected picture " + (arg2+1) + " of Antartica", 
+					Toast.LENGTH_SHORT).show();
+					imageView.setImageResource(pics[arg2]);
+		}
+	});
+}    
+public class ImageAdapter extends BaseAdapter {
     	private Context ctx;
     	int imageBackground;
-    	
     	public ImageAdapter(Context c) {
-			ctx = c;
-			TypedArray ta = obtainStyledAttributes(R.styleable.Gallery1);
-			imageBackground = ta.getResourceId(R.styleable.Gallery1_android_galleryItemBackground, 1);
-			ta.recycle();
-		}
-
-		@Override
-    	public int getCount() {
-    		
+		ctx = c;
+		TypedArray ta = obtainStyledAttributes(R.styleable.Gallery1);
+		imageBackground = ta.getResourceId(R.styleable.Gallery1_android_galleryItemBackground, 1);
+		ta.recycle();
+	}
+	@Override
+    	public int getCount() {	
     		return pics.length;
     	}
-
     	@Override
-    	public Object getItem(int arg0) {
-    		
+    	public Object getItem(int arg0) {    		
     		return arg0;
     	}
-
     	@Override
-    	public long getItemId(int arg0) {
-    		
+    	public long getItemId(int arg0) {		
     		return arg0;
     	}
-
     	@Override
     	public View getView(int arg0, View arg1, ViewGroup arg2) {
     		ImageView iv = new ImageView(ctx);
@@ -94,6 +79,5 @@ public class GalleryView extends Activity {
     		iv.setBackgroundResource(imageBackground);
     		return iv;
     	}
-
     }
 }
