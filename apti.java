@@ -9,8 +9,6 @@ public class apti extends Activity {
    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.apti);
-        
-        
+        setContentView(R.layout.apti);    
     }
 }
